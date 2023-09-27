@@ -35,6 +35,38 @@ Deliver:
 *   Explain what happens in the face of good and bad input.
     *   Write a few specific examples that occur to you, and use them later when testing.
 
+### Cat tool
+
+Create a Python function that will accept *command line arguments* which name files.  I will *open the files* and *read their contents* and print the lines to the console.
+
+If multiple files are named, read and print their contents in the order they show up on the command line
+
+*   Things I know how to do
+  * print text to the screen using `print()`
+
+* Things I don't know how to do
+  * Command line arguments
+  * Open files
+  * Read files
+
+* data used by the program
+  * The strings on the command line
+  * The data inside the files
+
+The Output will appear through the `print()` function as one long file that is the concatenation of each input file
+
+No algorithms; I'm just copying data from files to the screen.
+
+### grep tool
+### head tool
+### wc tool
+### sort tool
+### tac tool
+### tail tool
+### cut tool
+### paste tool
+### tt.py 
+
 
 ## Phase 2: Implementation
 *(15% of your effort)*
@@ -46,6 +78,29 @@ Deliver:
 *   [ ] More or less working code.
 *   [ ] Note any relevant and interesting events that happened while you wrote the code.
     *   e.g. things you learned, things that didn't go according to plan.
+### cat tool
+
+cat(list_of_filenames):
+"""
+Take a list of filenames
+for each file in the list of filename
+open the file, print its contents to the screen with print()
+"""
+for filename in list_of_filenames:
+    file = open(filename)  # Just let open() crash if filename is invalid
+    for line in file:
+        print the line, but suppress the extra newline afterward
+    close file
+
+### grep tool
+### head tool
+### wc tool
+### sort tool
+### tac tool
+### tail tool
+### cut tool
+### paste tool
+### tt.py
 
 
 ## Phase 3: Testing and Debugging
