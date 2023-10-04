@@ -16,6 +16,7 @@
 #                                  endorse or promote products derived from
 #                                  this software without specific prior written
 #                                  permission.
+import sys
 
 
 def cat(args):
@@ -31,3 +32,6 @@ def cat(args):
 def tac(args):
     """concatenate and print files in reverse"""
     print("TODO: concatenate and print files in reverse")
+
+if __name__ == '__main__':
+    cat(sys.argv[1:])

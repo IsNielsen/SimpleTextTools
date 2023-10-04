@@ -58,7 +58,37 @@ The Output will appear through the `print()` function as one long file that is t
 No algorithms; I'm just copying data from files to the screen.
 
 ### grep tool
+
+Create a Pythong funcion that accepts *command line args*, an optional modifier, a string to look for, and file names. *Open file* and *read content* and print all words containing pattern string.
+
+If multiple files, print the found words with name of file *FILENAME:pattern*
+
+*   Things i know:
+  * `print()`
+  * open files
+
+*   Things I dont know:
+  * split/take only certain words from a file
+
+*   Data used:
+  * Strings on command line
+  * data in files
+  * can I use arrays/lists?
+
+Output through the print tool with one word per line
+
+Algorithms: in-order search through file, finding pattern in words.
+
 ### head tool
+
+Create a python function that accepts *command line args*, an optional modifier, a digit (n), and file name(s). Open file and read first n lines (n<=10 by defailt)
+
+If multiple files, print `==> FILENAME <==` then the top `n` lines of the file (then repeat).
+
+*   what I know:
+  * how cat works, to read and print the file
+
+*   What I dont know:
 ### wc tool
 ### sort tool
 ### tac tool
@@ -66,6 +96,17 @@ No algorithms; I'm just copying data from files to the screen.
 ### cut tool
 ### paste tool
 ### tt.py 
+Read what arguments have been given as an array.
+there must be 2 or more args, the first will be the tool that is being used.
+Pass all args after that into the tool wanted
+
+*   What I know:
+  * reading and poping from arrays
+
+*   What I dont know:
+  * how to read from command line
+*   Data used:
+  * list/array of args inputed from command line
 
 
 ## Phase 2: Implementation
@@ -93,7 +134,61 @@ for filename in list_of_filenames:
     close file
 
 ### grep tool
+
+grep(list_of_args):
+"""
+Take list of args
+If first arg is `-v`: invert grep
+else: next arg is the pattern to look for
+for each file in filenames
+open, search for pattern, print words with(-v: without) pattern.
+"""
+if list_of_args[0] = "-v":
+    invert the grep function
+    list_of_args.pop[0]
+else:
+    pattern = list_of_args[0]
+    list_of_args.pop[0]
+multFile = "" #empty string if theres only one file
+
+for filename in list_of_args:
+    file = open(filename)
+    if list_of_args > 1:
+        multFile = "{filename}:"
+    for word in file:
+        if word contains pattern && grep = true:
+            print multFile + word (one per line)
+        elif grep = false && word !contains pattern:
+            print multFile + word (one per line)
+    close file
+
 ### head tool
+head(list_of_args):
+"""
+Take a list of args
+check for modifiers to read length
+for each file in the list of filename
+open the file, print its contents to the screen with print()
+"""
+multFile = "" #empty string if only one file
+linesToRead = 10;
+
+if list_of_args[0] = '-v':
+    linesToRead = int list_of_args[1]
+    list_of_args.pop[0]
+    list_of_args.pop[0] #left with only file names
+
+for filename in list_of_args:
+    file = open(filename)  # Just let open() crash if filename is invalid
+    if list_of_args > 1:
+        multFile = "\n==> {filename} <=="
+    count = 0
+    for line in file:
+        if count == linesToRead: break
+        print the line, but suppress the extra newline afterward
+        count += 1
+    close file
+
 ### wc tool
 ### sort tool
 ### tac tool
@@ -101,6 +196,19 @@ for filename in list_of_filenames:
 ### cut tool
 ### paste tool
 ### tt.py
+
+"""...The Code already Included..."""
+else:
+    tool = sys.args[0]
+    sys.args.pop[0] #get rid of tool from array before passing into function
+    if tool == "grep"
+        grep(sys.args)
+    if tool == "head"
+        head(sys.args)
+    # ...repeat for other tools...
+    else:
+        crash cause its not a tool 
+        
 
 
 ## Phase 3: Testing and Debugging
