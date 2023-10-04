@@ -39,8 +39,10 @@ else:
     # print("TODO: Use if/elif/else to select which function to call")
     # print("TODO: Call the requested tool, passing remaining arguments from sys.argv")
     # print("TODO: Call usage() and exit when bad input is provided")
-    tool = sys.args[0]
-    list_of_args = sys.args[1:]  # get rid of tool from array before passing into function
+    print("this printed")
+    tool = sys.argv[1]
+    print(tool)
+    list_of_args = sys.argv[2:]  # get rid of tool from array before passing into function
     if tool == "cat":
         cat(list_of_args)
     elif tool == "tac":
