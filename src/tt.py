@@ -35,8 +35,31 @@ if len(sys.argv) < 2:
     usage()
     sys.exit(1)
 else:
-    print("TODO: Determine which tool the user has invoked by examining sys.argv")
-    print("TODO: Use if/elif/else to select which function to call")
-    print("TODO: Call the requested tool, passing remaining arguments from sys.argv")
-    print("TODO: Call usage() and exit when bad input is provided")
+    # print("TODO: Determine which tool the user has invoked by examining sys.argv")
+    # print("TODO: Use if/elif/else to select which function to call")
+    # print("TODO: Call the requested tool, passing remaining arguments from sys.argv")
+    # print("TODO: Call usage() and exit when bad input is provided")
+    tool = sys.args[0]
+    list_of_args = sys.args[1:]  # get rid of tool from array before passing into function
+    if tool == "cat":
+        cat(list_of_args)
+    elif tool == "tac":
+        tac(list_of_args)
+    elif tool == "grep":
+        grep(list_of_args)
+    elif tool == "head":
+        head(list_of_args)
+    elif tool == "wc":
+        wc(list_of_args)
+    elif tool == "sort":
+        sort(list_of_args)
+    elif tool == "tail":
+        tail(list_of_args)
+    elif tool == "cut":
+        cut(list_of_args)
+    elif tool == "paste":
+        paste(list_of_args)
+    else:
+        usage()
+        sys.exit(1)
 
