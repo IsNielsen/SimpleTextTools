@@ -31,7 +31,16 @@ def cat(args):
 
 def tac(args):
     """concatenate and print files in reverse"""
-    print("TODO: concatenate and print files in reverse")
+    """
+    Take a list of filenames
+    for each file in the list of filename, starting at the bottom and going to the top
+    open the file, print its contents to the screen with print()
+    """
+    for filename in args:
+        file = open(filename)  # Just let open() crash if filename is invalid
+        for line in reversed(file):
+            print(line, end='') # the line, but suppress the extra newline afterward
+        file.close()
 
 if __name__ == '__main__':
     cat(sys.argv[1:])

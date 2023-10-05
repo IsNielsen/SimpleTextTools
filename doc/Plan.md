@@ -86,9 +86,19 @@ If multiple files, print each files output like normal, and then print a total c
   * What the character and newline patters might be
     * is character just "" and newline "/n"?
 *   Algorithms:
-  * 
+  * ?
 ### sort tool
 ### tac tool
+Similar to cat, but instead this function will print the lines of the file in reverse order
+If multiple files, do it for each file in turn
+
+*   What I know:
+  * how cat works
+  * read and print file
+*   What I dont know:
+  * how to iterate through the file backward
+*   Algorithms:
+  * ?
 ### tail tool
 ### cut tool
 ### paste tool
@@ -216,6 +226,17 @@ wx(args):
 
 ### sort tool
 ### tac tool
+tac(list_of_filenames):
+    """
+    Take a list of filenames
+    for each file in the list of filename, starting at the bottom and going to the top
+    open the file, print its contents to the screen with print()
+    """
+    for filename in list_of_filenames:
+        file = open(filename)  # Just let open() crash if filename is invalid
+        for the reverse of line in file:
+            print the line, but suppress the extra newline afterward
+        close file
 ### tail tool
 ### cut tool
 ### paste tool
