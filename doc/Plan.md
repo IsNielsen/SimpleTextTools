@@ -18,23 +18,6 @@ Deliver:
     *   Explain what form the output will take.
 *   [ ] List the algorithms that will be used (but don't write them yet).
 
-
-## Phase 1: Design
-*(30% of your effort)*
-
-**Important - do not change the code in this phase**
-
-Deliver:
-
-*   [ ] Function signatures that include:
-    *   Descriptive names.
-    *   Parameter lists.
-    *   Documentation strings that explain its purpose and types of inputs and outputs.
-*   [ ] Pseudocode that captures how each function works.
-    *   Pseudocode != source code.  Do not paste your finished source code into this part of the plan.
-*   Explain what happens in the face of good and bad input.
-    *   Write a few specific examples that occur to you, and use them later when testing.
-
 ### Cat tool
 
 Create a Python function that will accept *command line arguments* which name files.  I will *open the files* and *read their contents* and print the lines to the console.
@@ -90,6 +73,20 @@ If multiple files, print `==> FILENAME <==` then the top `n` lines of the file (
 
 *   What I dont know:
 ### wc tool
+
+Create a function that accepts *command line args* that name files. Read through file(s) and count number of lines, words, and characters.
+If multiple files, print each files output like normal, and then print a total count after.
+
+*   What I know:
+  * how to read a file and look for certain patterns
+  * everything i knew from above tools
+
+*   What I dont know:
+  * How to allign the output
+  * What the character and newline patters might be
+    * is character just "" and newline "/n"?
+*   Algorithms:
+  * 
 ### sort tool
 ### tac tool
 ### tail tool
@@ -108,17 +105,22 @@ Pass all args after that into the tool wanted
 *   Data used:
   * list/array of args inputed from command line
 
+## Phase 1: Design
+*(30% of your effort)*
 
-## Phase 2: Implementation
-*(15% of your effort)*
-
-**Finally, you can write code!**
+**Important - do not change the code in this phase**
 
 Deliver:
 
-*   [ ] More or less working code.
-*   [ ] Note any relevant and interesting events that happened while you wrote the code.
-    *   e.g. things you learned, things that didn't go according to plan.
+*   [ ] Function signatures that include:
+    *   Descriptive names.
+    *   Parameter lists.
+    *   Documentation strings that explain its purpose and types of inputs and outputs.
+*   [ ] Pseudocode that captures how each function works.
+    *   Pseudocode != source code.  Do not paste your finished source code into this part of the plan.
+*   Explain what happens in the face of good and bad input.
+    *   Write a few specific examples that occur to you, and use them later when testing.
+
 ### cat tool
 
 cat(list_of_filenames):
@@ -164,32 +166,54 @@ for filename in list_of_args:
 
 ### head tool
 head(list_of_args):
-"""
-Take a list of args
-check for modifiers to read length
-for each file in the list of filename
-open the file, print its contents to the screen with print()
-"""
-multFile = "" #empty string if only one file
-linesToRead = 10;
-
-if list_of_args[0] = '-v':
-    linesToRead = int list_of_args[1]
-    list_of_args.pop[0]
-    list_of_args.pop[0] #left with only file names
-
-for filename in list_of_args:
-    file = open(filename)  # Just let open() crash if filename is invalid
-    if list_of_args > 1:
-        multFile = "\n==> {filename} <=="
-    count = 0
-    for line in file:
-        if count == linesToRead: break
-        print the line, but suppress the extra newline afterward
-        count += 1
-    close file
+    """
+    Take a list of args
+    check for modifiers to read length
+    for each file in the list of filename
+    open the file, print its contents to the screen with print()
+    """
+    multFile = "" #empty string if only one file
+    linesToRead = 10;
+    if list_of_args[0] = '-v':
+        linesToRead = int list_of_args[1]
+        list_of_args.pop[0]
+        list_of_args.pop[0] #left with only file names
+    for filename in list_of_args:
+        file = open(filename)  # Just let open() crash if filename is invalid
+        if list_of_args > 1:
+            multFile = "\n==> {filename} <=="
+        count = 0
+        for line in file:
+            if count == linesToRead: break
+            print the line, but suppress the extra newline afterward
+            count += 1
+        close file
 
 ### wc tool
+wx(args):
+    """
+    Take a list of filenames
+    for each file in the list:
+    open the file, count lines, words, and characters
+    print lines, words, characters, and filename
+    """
+    multFile = len(args) > 1 # true if more than 1 file
+    total_line, total_word, total_char = 0
+    for filename in args:
+        file = open(filename)
+        for line in file:
+            if "" in line: # every char
+                char_count +=1
+            if " " in line: # check for words
+                word_count +=1
+            if "\n" in line: # check for lines
+                line_count +=1
+        print linecount, wordcount, charcount, and filename
+        total_line += line_count
+        total_word += word_count
+        total_char += char_count
+        file.close()
+
 ### sort tool
 ### tac tool
 ### tail tool
@@ -209,6 +233,19 @@ else:
     else:
         crash cause its not a tool 
         
+
+
+
+## Phase 2: Implementation
+*(15% of your effort)*
+
+**Finally, you can write code!**
+
+Deliver:
+
+*   [ ] More or less working code.
+*   [ ] Note any relevant and interesting events that happened while you wrote the code.
+    *   e.g. things you learned, things that didn't go according to plan.
 
 
 ## Phase 3: Testing and Debugging

@@ -19,8 +19,32 @@
 
 
 def head(args):
-    """output the first part of files"""
-    print("TODO: output the first part of files")
+    """
+    Take a list of args
+    check for modifiers to read length
+    for each file in the list of filename
+    open the file, print its contents to the screen with print()
+    """
+    multFile = ""   # empty string if only one file
+    lines = 10
+
+    if args[0] == '-n':
+        lines = int(args[1])
+        args.pop(0)
+        args.pop(0)     # left with only file names
+
+    for filename in args:
+        file = open(filename)  # Just let open() crash if filename is invalid
+        if len(args) > 1:
+            multFile = "\n==> {filename} <=="
+        count = 0
+        for line in file:
+            if count == lines: break
+            # print the line, but suppress the extra newline afterward
+            print(multFile + line, end='')
+            count += 1
+        file.close()
+
 
 
 def tail(args):
