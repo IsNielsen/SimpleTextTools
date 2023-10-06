@@ -368,6 +368,7 @@ Deliver:
 ### tail tool
 *   10/5 My original plan of reversing the data and then reading it kinda works, but it prints it upside down
   * I either need to print them back in correct order, or find a different way to read the file.
+*   10/6, through REPL testing, doing `for line in (file.readlines() [-linecount:])` might work. (can confirm)
 
 
 ### cut tool

@@ -69,7 +69,8 @@ def tail(args):
         if len(args) > 1:
             print(f"\n==> {filename} <==")
         count = 0
-        for line in reversed(list(file)):
+        # for line in reversed(list(file)):
+        for line in (file.readlines()[-lines:]):
             if count == lines: break
             # print the line, but suppress the extra newline afterward
             print(line, end='')
