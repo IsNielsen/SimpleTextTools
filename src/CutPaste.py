@@ -26,26 +26,37 @@ def cut(args):
     check for modifiers that will change what column is being printed
     for each file, print the specified column
     """
-    column_to_cut = [1]  # default
+    column_to_cut = []  # default
 
     if len(args) == 0:
         usage()
         sys.exit(1)
     # if there is a modifier and there is at least 3 args
     if args[0] == "-f":
-        if len(args) >= 3 and args[1].isdigit():
-            column_to_cut = int(args[1])
+        if len(args) >= 3: # and args[1].isdigit():
+            temp = args[1].split(",")
+            for i in range(len(temp)):
+                column_to_cut.append(int(temp[i]))
+            #print(column_to_cut)
             args.pop(0)
             args.pop(0)
         else:
-            usage()
+            print("Not enough arguments given")
             sys.exit(1)
+    else:
+        column_to_cut.append(1)
     # should be left with only file names as arguments now
     for filename in args:
         file = open(filename)
         # split file into columns separated by `,`
         for line in file:
-            print(line.split(",")[column_to_cut-1])
+            temp = []
+            for i in column_to_cut:
+                #temp.join(line.split(",")[i-1])
+                #print(line.split(",")[i-1])
+                temp.append(line.split(",")[i-1].strip())
+            print(",".join(temp))
+                #print(",".join(temp))
         # print the column specified by `column_to_cut - 1`
 
 
