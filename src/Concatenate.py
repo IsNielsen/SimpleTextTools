@@ -24,6 +24,7 @@ def cat(args):
     # this was done in class
     for filename in args:
         file = open(filename)  # Just let open() crash if filename is invalid
+        print(type(file))
         for line in file:
             print(line, end='')
         file.close()
@@ -38,9 +39,10 @@ def tac(args):
     """
     for filename in args:
         file = open(filename)  # Just let open() crash if filename is invalid
-        for line in reversed(file):
+        for line in reversed(list(file)):
             print(line, end='') # the line, but suppress the extra newline afterward
         file.close()
+
 
 if __name__ == '__main__':
     cat(sys.argv[1:])

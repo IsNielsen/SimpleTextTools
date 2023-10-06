@@ -268,6 +268,24 @@ Deliver:
 *   [ ] Note any relevant and interesting events that happened while you wrote the code.
     *   e.g. things you learned, things that didn't go according to plan.
 
+### cat tool
+### grep tool
+### head tool
+### wc tool
+*   10/4 Code runs, but so far only the lines are counted correctly
+  * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
+*   10/5 Still don't know why the character count isnt working
+### sort tool
+### tac tool
+*   When a `file` is read, its type is `<class '_io.TextIOWrapper'>` which cant be reversed().
+  * calling reversed(list(file)) fixes that problem. 
+    * How much memory does this take up?
+    * This is simple, but is there a more memory efficient way?
+
+### tail tool
+### cut tool
+### paste tool
+### tt.py
 
 ## Phase 3: Testing and Debugging
 *(30% of your effort)*
