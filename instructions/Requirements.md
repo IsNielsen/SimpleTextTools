@@ -205,7 +205,7 @@ Let `open()` raise an error when the user does not have permission to access a f
 ## The `>` redirection operator is a feature of your shell
 
 *   As you study the files in [examples](./examples) you will come across commands that use the `>` symbol.
-    *   You should recall this from a prevoius Shell Tutor lesson.
+    *   You should recall this from a previous Shell Tutor lesson.
 *   In a nutshell, `>` is the shell's *redirection operator*.
     *   It causes output that would be printed to the screen to instead be *redirected* into a file.
     *   This is a feature of your shell and is *not* something that you have to write in Python.

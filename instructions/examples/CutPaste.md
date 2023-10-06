@@ -88,13 +88,10 @@ If you get stuck on the `paste` tool and want to proceed to `cut`, you can creat
 The `paste` tool aborts as soon as a non-existent, invalid or inaccessible file is encountered.  You do not need to pre-screen the arguments before you begin processing; just let `open()` raise an exception.
 
     $ python src/tt.py paste data/let3 DOES_NOT_EXIST data/num2
-    a
-    b
-    c
     Traceback (most recent call last):
-      File "/home/fadein/cs1440-falor-erik-assn2/src/tt.py", line 39, in <module>
-        cut(sys.argv[2:])
-      File "/home/fadein/cs1440-falor-erik-assn2/src/CutPaste.py", line 40, in cut
+      File "/home/fadein/cs1440-falor-erik-assn2/src/tt.py", line 41, in <module>
+        paste(sys.argv[2:])
+      File "/home/fadein/cs1440-falor-erik-assn2/src/CutPaste.py", line 81, in paste
         f = open(fil)
             ^^^^^^^^^
     FileNotFoundError: [Errno 2] No such file or directory: 'DOES_NOT_EXIST'
