@@ -123,6 +123,22 @@ If multiple files, do it for each file in turn
 *   Algorithms:
   * ?
 ### tail tool
+Basically head function but upside down
+Create a python function that accepts *command line args*, an optional modifier, a digit (n), and file name(s). Open file and read last `n` lines (n<=10 by defailt)
+
+If multiple files, print `==> FILENAME <==` then the bottom `n` lines of the file (then repeat).
+
+*   what I know:
+  * That my head function at least kina works
+  * How to read a file in reverse
+
+*   What I dont know:
+  * Is the `reversed(list(file)` the best way to read the file backwards?
+  * Other than that I think Im good? Wish me luck
+
+*   Data needed:
+  * commandline inputs, 
+    * Files, modifier(flag)
 ### cut tool
 ### paste tool
 ### tt.py 
@@ -203,7 +219,8 @@ head(list_of_args):
     Take a list of args
     check for modifiers to read length
     for each file in the list of filename
-    open the file, print its contents to the screen with print()
+    open the file, 
+    print the first n lines to the screen with print()
     """
     multFile = "" #empty string if only one file
     linesToRead = 10;
@@ -273,7 +290,33 @@ tac(list_of_filenames):
         for the reverse of line in file:
             print the line, but suppress the extra newline afterward
         close file
+
 ### tail tool
+tail(args):
+    """
+    Take a list of args
+    check for modifiers to read length
+    for each file in the list of filename
+    open the file, reverse file
+    print last (now technically first) n lines to the screen with print()
+    """
+    multFile = "" #empty string if only one file
+    linesToRead = 10;
+    if list_of_args[0] = '-v':
+        linesToRead = int list_of_args[1]
+        list_of_args.pop[0]
+        list_of_args.pop[0] #left with only file names
+    for filename in list_of_args:
+        file = open(filename)  # Just let open() crash if filename is invalid
+        if list_of_args > 1:
+            multFile = "\n==> {filename} <=="
+        count = 0
+        for line in reversed file:
+            if count == linesToRead: break
+            print the line, but suppress the extra newline afterward
+            count += 1
+        close file
+
 ### cut tool
 ### paste tool
 ### tt.py
@@ -307,6 +350,8 @@ Deliver:
 ### cat tool
 ### grep tool
 ### head tool
+*   The way I originally tried to account for multiple files resulted in `==> {filename} <==opponents`
+  * I think I can fix that by printing it separatly right after I open the file
 ### wc tool
 *   10/4 Code runs, but so far only the lines are counted correctly
   * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
@@ -321,6 +366,10 @@ Deliver:
     * This is simple, but is there a more memory efficient way?
 
 ### tail tool
+*   10/5 My original plan of reversing the data and then reading it kinda works, but it prints it upside down
+  * I either need to print them back in correct order, or find a different way to read the file.
+
+
 ### cut tool
 ### paste tool
 ### tt.py
