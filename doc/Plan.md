@@ -155,7 +155,7 @@ If multiple files, just do it in order without separation.
     * optional modifier and integer for what row needs printin
     * files
 *   Algorithms:
-  * TODO: remember to do this
+  * 
 ### paste tool
 ### tt.py 
 Read what arguments have been given as an array.
@@ -334,6 +334,30 @@ tail(args):
         close file
 
 ### cut tool
+cut(args):
+    """
+    Take a list of args
+    check for modifiers that will change what column is being printed
+    for each file, print the specified column
+    """
+    if args has 0 arguments
+        call usage
+        quit
+    column_to_cut = 1 # default
+    # if there is a modifier and there is at least 3 args
+    if first arg is `"-f"` 
+        if len(args) >= 3 and second arg is an integer
+            column_to_cut = args[1]
+            pop the first 2 args (modifier and integer number)
+        else: 
+            incorrect input. call usage and exit
+    # should be left with only file names as arguments now
+    for file in args:
+        open file
+        split file into columns separated by `,`
+        print the column specified by `column_to_cut - 1`
+        
+        
 ### paste tool
 ### tt.py
 
@@ -388,6 +412,8 @@ Deliver:
 
 
 ### cut tool
+*   having `column_to_cut` as an integer didnt account for multiple columns
+  * Might be able to fix it by using `column_to_count` an array of ints
 ### paste tool
 ### tt.py
 
