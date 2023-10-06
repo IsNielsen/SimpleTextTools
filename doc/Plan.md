@@ -140,6 +140,22 @@ If multiple files, print `==> FILENAME <==` then the bottom `n` lines of the fil
   * commandline inputs, 
     * Files, modifier(flag)
 ### cut tool
+Create a function that takes *command line args*, and optional modifer (which requires an int after), and file name(s)
+Open each file and print just the column (separated by `,`'s) that is requested
+If multiple files, just do it in order without separation.
+
+*   What I know:
+  * How to split files with a separator
+  * How to check for the modifier
+  * There is a good chance i might need to fix an off-by-one error.
+*   What I dont know:
+  * what data type im going to get when I split the files.
+*   Data needed:
+  * command line inputs
+    * optional modifier and integer for what row needs printin
+    * files
+*   Algorithms:
+  * TODO: remember to do this
 ### paste tool
 ### tt.py 
 Read what arguments have been given as an array.
