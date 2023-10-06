@@ -72,6 +72,12 @@ If multiple files, print `==> FILENAME <==` then the top `n` lines of the file (
   * how cat works, to read and print the file
 
 *   What I dont know:
+  * I think Im good? Wish me luck
+
+*   Data needed:
+  * commandline inputs, 
+    * Files, modifier(flag)
+
 ### wc tool
 
 Create a function that accepts *command line args* that name files. Read through file(s) and count number of lines, words, and characters.
@@ -88,6 +94,23 @@ If multiple files, print each files output like normal, and then print a total c
 *   Algorithms:
   * ?
 ### sort tool
+
+Create a function that accepts *command line args* as file name(s). Open and read files, and then sort the lines by lexical order and print.
+
+If there are multiple files, everything is sorted together in one big string.
+
+*   What I know:
+  * Spaces `(" ")` are counted as character, and have a higher priority than letters
+    * Therefore, empty lines are printed first, then any lines with indentations.
+  * I can read a line of a file and look for certain elements
+*   What I don't know:
+  * How the heck ASCII characters work
+  * How to sort by ASCII
+
+*   Data needed:
+  * Each file that is called
+  * Might need an array that contains lines from every file, then sort that.
+  * 
 ### tac tool
 Similar to cat, but instead this function will print the lines of the file in reverse order
 If multiple files, do it for each file in turn
@@ -225,6 +248,19 @@ wx(args):
         file.close()
 
 ### sort tool
+sort(args):
+    """
+    Take a list of filenames
+    open all files, and sort each line by lexical order
+    print all lines (from every file) in sorted order
+    """
+    for filename in args:
+        file = open(filename)
+        # store this somewhere or do something with it
+        close file
+    # take lines from every file and sort them
+    print(sorted_lines)
+
 ### tac tool
 tac(list_of_filenames):
     """
@@ -275,6 +311,8 @@ Deliver:
 *   10/4 Code runs, but so far only the lines are counted correctly
   * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
 *   10/5 Still don't know why the character count isnt working
+  * Instead of using `if` for words, i used `len(line.split())`
+  * Similarly, just `len(line)` gave me the correct character count.
 ### sort tool
 ### tac tool
 *   When a `file` is read, its type is `<class '_io.TextIOWrapper'>` which cant be reversed().

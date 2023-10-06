@@ -19,5 +19,19 @@
 
 
 def sort(args):
-    """sort lines of text files"""
-    print("TODO: sort lines of text files")
+    """
+    Take a list of filenames
+    open all files, and sort each line by lexical order
+    print all lines (from every file) in sorted order
+    """
+    all_files = []
+    for filename in args:
+        file = open(filename)
+        # store this somewhere or do something with it
+        for line in file:
+            all_files.append(line)
+        file.close()
+    # take lines from every file and sort them
+    all_files.sort()
+    for i in range(len(all_files)):
+        print(all_files[i], end="")
