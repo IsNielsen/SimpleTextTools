@@ -52,14 +52,27 @@ def cut(args):
         for line in file:
             temp = []
             for i in column_to_cut:
-                #temp.join(line.split(",")[i-1])
-                #print(line.split(",")[i-1])
                 temp.append(line.split(",")[i-1].strip())
             print(",".join(temp))
-                #print(",".join(temp))
-        # print the column specified by `column_to_cut - 1`
+        file.close()
 
 
 def paste(args):
-    """merge lines of files"""
-    print("TODO: merge lines of files")
+    array_of_lines = []
+    max_lines = 0
+    for filename in args:
+        file = open(filename)
+        lines = file.readlines()
+        max_lines = max(max_lines, len(lines))
+        array_of_lines.append(lines)
+        file.close()
+
+    # Pad lines with empty strings if necessary
+    for lines in array_of_lines:
+        while len(lines) < max_lines:
+            lines.append("")
+
+    # Join lines with commas and print
+    for i in range(max_lines):
+        merged_line = ','.join(line[i].strip() for line in array_of_lines)
+        print(merged_line)

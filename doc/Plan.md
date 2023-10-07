@@ -157,6 +157,17 @@ If multiple files, just do it in order without separation.
 *   Algorithms:
   * 
 ### paste tool
+
+Create a function that joins 2 or more files together by combining files line by line, separated with a `,` .
+If theres just one file, it acts like cat
+
+*   What I know:
+  * `",".join(array)` might do what i want
+  * how to read the file
+  * Im going to need to input each line into an array
+*   What I dont know:
+  * Why im not asleep
+  * 
 ### tt.py 
 Read what arguments have been given as an array.
 there must be 2 or more args, the first will be the tool that is being used.
@@ -359,6 +370,18 @@ cut(args):
         
         
 ### paste tool
+
+paste(args):
+    If no args, just let open crash
+    array_of_files = []
+    for filename in args:
+        open file
+        for lines in file:
+            if array index doesnt exist:
+                append a new array index as ""
+            add each line to the corresponding index in array_of_files
+        close file
+    print array_of_files as strings on separate lines
 ### tt.py
 
 """...The Code already Included..."""
@@ -388,17 +411,28 @@ Deliver:
     *   e.g. things you learned, things that didn't go according to plan.
 
 ### cat tool
+*   As quoted in the provided Cat_Plan.md:
+  - I forgot to account for all lines ending in `\n`, so I updated the plan to print without an added newline using the `end=""` parameter in python's `print()` function.
+
 ### grep tool
+
+*   this went smoother than I thought and thats worrying
+
 ### head tool
+
 *   The way I originally tried to account for multiple files resulted in `==> {filename} <==opponents`
   * I think I can fix that by printing it separatly right after I open the file
+
 ### wc tool
+
 *   10/4 Code runs, but so far only the lines are counted correctly
   * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
 *   10/5 Still don't know why the character count isnt working
   * Instead of using `if` for words, i used `len(line.split())`
   * Similarly, just `len(line)` gave me the correct character count.
+  * 
 ### sort tool
+
 ### tac tool
 *   When a `file` is read, its type is `<class '_io.TextIOWrapper'>` which cant be reversed().
   * calling reversed(list(file)) fixes that problem. 
@@ -415,7 +449,13 @@ Deliver:
 *   having `column_to_cut` as an integer didnt account for multiple columns
   * Might be able to fix it by using `column_to_count` an array of ints
 ### paste tool
+
+*   I kinda had to go relearn how to open and read files. I found that doing file.readlines() helped read the file in the way I wanted
+*   Not going to lie, I forgot while loops existed. Might have been useful if i remembered that earlier.
+* 
 ### tt.py
+
+*   Way not as complicated as I thought. At least I assume that its working, I havent found a bug yet.
 
 ## Phase 3: Testing and Debugging
 *(30% of your effort)*

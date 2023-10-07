@@ -24,7 +24,6 @@ def cat(args):
     # this was done in class
     for filename in args:
         file = open(filename)  # Just let open() crash if filename is invalid
-        print(type(file))
         for line in file:
             print(line, end='')
         file.close()
