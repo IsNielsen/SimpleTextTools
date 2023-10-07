@@ -25,16 +25,16 @@ Create a Python function that will accept *command line arguments* which name fi
 If multiple files are named, read and print their contents in the order they show up on the command line
 
 *   Things I know how to do
-  * print text to the screen using `print()`
+    * print text to the screen using `print()`
 
 * Things I don't know how to do
-  * Command line arguments
-  * Open files
-  * Read files
+    * Command line arguments
+    * Open files
+    * Read files
 
 * data used by the program
-  * The strings on the command line
-  * The data inside the files
+    * The strings on the command line
+    * The data inside the files
 
 The Output will appear through the `print()` function as one long file that is the concatenation of each input file
 
@@ -47,16 +47,16 @@ Create a Pythong funcion that accepts *command line args*, an optional modifier,
 If multiple files, print the found words with name of file *FILENAME:pattern*
 
 *   Things i know:
-  * `print()`
-  * open files
+    * `print()`
+    * open files
 
 *   Things I dont know:
-  * split/take only certain words from a file
+    * split/take only certain words from a file
 
 *   Data used:
-  * Strings on command line
-  * data in files
-  * can I use arrays/lists?
+    * Strings on command line
+    * data in files
+    * can I use arrays/lists?
 
 Output through the print tool with one word per line
 
@@ -69,14 +69,17 @@ Create a python function that accepts *command line args*, an optional modifier,
 If multiple files, print `==> FILENAME <==` then the top `n` lines of the file (then repeat).
 
 *   what I know:
-  * how cat works, to read and print the file
+    * how cat works, to read and print the file
 
 *   What I dont know:
-  * I think Im good? Wish me luck
+    * I think Im good? Wish me luck
 
 *   Data needed:
-  * commandline inputs, 
+    * commandline inputs, 
     * Files, modifier(flag)
+*   Algorithms:
+    * Loop over files (for loop)
+    * Error handling through usage()
 
 ### wc tool
 
@@ -84,15 +87,17 @@ Create a function that accepts *command line args* that name files. Read through
 If multiple files, print each files output like normal, and then print a total count after.
 
 *   What I know:
-  * how to read a file and look for certain patterns
-  * everything i knew from above tools
+    * how to read a file and look for certain patterns
+    * everything i knew from above tools
 
 *   What I dont know:
-  * How to allign the output
-  * What the character and newline patters might be
-    * is character just "" and newline "/n"?
+    * How to allign the output
+    * What the character and newline patters might be
+         * is character just "" and newline "/n"?
 *   Algorithms:
-  * ?
+    * Loop over files (for loop)
+    * Error handling through usage()
+
 ### sort tool
 
 Create a function that accepts *command line args* as file name(s). Open and read files, and then sort the lines by lexical order and print.
@@ -100,28 +105,38 @@ Create a function that accepts *command line args* as file name(s). Open and rea
 If there are multiple files, everything is sorted together in one big string.
 
 *   What I know:
-  * Spaces `(" ")` are counted as character, and have a higher priority than letters
-    * Therefore, empty lines are printed first, then any lines with indentations.
-  * I can read a line of a file and look for certain elements
+    * Spaces `(" ")` are counted as character, and have a higher priority than letters
+        * Therefore, empty lines are printed first, then any lines with indentations.
+    * I can read a line of a file and look for certain elements
 *   What I don't know:
-  * How the heck ASCII characters work
-  * How to sort by ASCII
+    * How the heck ASCII characters work
+    * How to sort by ASCII
 
 *   Data needed:
-  * Each file that is called
-  * Might need an array that contains lines from every file, then sort that.
-  * 
+    * Each file that is called
+    * Might need an array that contains lines from every file, then sort that.
+
+*   Algorithms:
+    * Loop over files (for loop)
+    * Error handling through usage()
+
 ### tac tool
 Similar to cat, but instead this function will print the lines of the file in reverse order
 If multiple files, do it for each file in turn
 
 *   What I know:
-  * how cat works
-  * read and print file
+    * how cat works
+    * read and print file
 *   What I dont know:
-  * how to iterate through the file backward
+    * how to iterate through the file backward
+*   Data needed:
+    *  Input from commandline arguments
+    * Files 
+  
 *   Algorithms:
-  * ?
+    * Loop over files (for loop)
+    * Error handling through usage()
+
 ### tail tool
 Basically head function but upside down
 Create a python function that accepts *command line args*, an optional modifier, a digit (n), and file name(s). Open file and read last `n` lines (n<=10 by defailt)
@@ -129,57 +144,72 @@ Create a python function that accepts *command line args*, an optional modifier,
 If multiple files, print `==> FILENAME <==` then the bottom `n` lines of the file (then repeat).
 
 *   what I know:
-  * That my head function at least kina works
-  * How to read a file in reverse
+    That my head function at least kina works
+    * How to read a file in reverse
 
 *   What I dont know:
-  * Is the `reversed(list(file)` the best way to read the file backwards?
-  * Other than that I think Im good? Wish me luck
+    * Is the `reversed(list(file)` the best way to read the file backwards?
+    * Other than that I think Im good? Wish me luck
 
 *   Data needed:
-  * commandline inputs, 
+    * commandline inputs, 
     * Files, modifier(flag)
+
+*   Algorithms:
+    * Loop over files (for loop)
+    * Error handling through usage()
+
 ### cut tool
 Create a function that takes *command line args*, and optional modifer (which requires an int after), and file name(s)
 Open each file and print just the column (separated by `,`'s) that is requested
 If multiple files, just do it in order without separation.
 
 *   What I know:
-  * How to split files with a separator
-  * How to check for the modifier
-  * There is a good chance i might need to fix an off-by-one error.
+    * How to split files with a separator
+    * How to check for the modifier
+    * There is a good chance i might need to fix an off-by-one error.
 *   What I dont know:
-  * what data type im going to get when I split the files.
+    * what data type im going to get when I split the files.
 *   Data needed:
-  * command line inputs
-    * optional modifier and integer for what row needs printin
-    * files
+    * command line inputs
+        * optional modifier and integer for what row needs printin
+        * files
 *   Algorithms:
-  * 
+    * Loop over files (for loop)
+    * Error handling through usage()
+
 ### paste tool
 
 Create a function that joins 2 or more files together by combining files line by line, separated with a `,` .
 If theres just one file, it acts like cat
 
 *   What I know:
-  * `",".join(array)` might do what i want
-  * how to read the file
-  * Im going to need to input each line into an array
+    * `",".join(array)` might do what i want
+    * how to read the file
+    * Im going to need to input each line into an array
 *   What I dont know:
-  * Why im not asleep
-  * 
+    * Why im not asleep
+
+*   Algorithms:
+    * Loop over files (for loop)
+* Error handling through usage()
+
 ### tt.py 
 Read what arguments have been given as an array.
 there must be 2 or more args, the first will be the tool that is being used.
 Pass all args after that into the tool wanted
 
 *   What I know:
-  * reading and poping from arrays
+    * reading and poping from arrays
 
 *   What I dont know:
-  * how to read from command line
+    * how to read from command line
 *   Data used:
-  * list/array of args inputed from command line
+    * list/array of args inputed from command line
+
+*   Algorithms:
+    * if this file, do this (for all files)
+    * Error handling through usage()
 
 ## Phase 1: Design
 *(30% of your effort)*
@@ -412,46 +442,59 @@ Deliver:
 
 ### cat tool
 *   As quoted in the provided Cat_Plan.md:
-  - I forgot to account for all lines ending in `\n`, so I updated the plan to print without an added newline using the `end=""` parameter in python's `print()` function.
+    - I forgot to account for all lines ending in `\n`, so I updated the plan to print without an added newline using the `end=""` parameter in python's `print()` function.
+    * Turns out I forgot error handling through usage()
 
 ### grep tool
 
 *   this went smoother than I thought and thats worrying
+    * Turns out I forgot error handling through usage()
 
 ### head tool
 
 *   The way I originally tried to account for multiple files resulted in `==> {filename} <==opponents`
-  * I think I can fix that by printing it separatly right after I open the file
+    * I think I can fix that by printing it separatly right after I open the file
+    * Turns out I forgot error handling through usage()
 
 ### wc tool
 
 *   10/4 Code runs, but so far only the lines are counted correctly
-  * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
+    * I think my problem for words is that Im looking only for `" "`, but some(most) words in these files actually end in `"\n"`
 *   10/5 Still don't know why the character count isnt working
-  * Instead of using `if` for words, i used `len(line.split())`
-  * Similarly, just `len(line)` gave me the correct character count.
-  * 
+    * Instead of using `if` for words, i used `len(line.split())`
+    * Similarly, just `len(line)` gave me the correct character count.
+    * Turns out I forgot error handling through usage()
+    * 
 ### sort tool
+  * Turns out I forgot error handling through usage()
 
 ### tac tool
+
 *   When a `file` is read, its type is `<class '_io.TextIOWrapper'>` which cant be reversed().
-  * calling reversed(list(file)) fixes that problem. 
-    * How much memory does this take up?
-    * This is simple, but is there a more memory efficient way?
+    * calling reversed(list(file)) fixes that problem. 
+        * How much memory does this take up?
+        * This is simple, but is there a more memory efficient way?
+  * Turns out I forgot error handling through usage()
 
 ### tail tool
+
 *   10/5 My original plan of reversing the data and then reading it kinda works, but it prints it upside down
-  * I either need to print them back in correct order, or find a different way to read the file.
+    * I either need to print them back in correct order, or find a different way to read the file.
 *   10/6, through REPL testing, doing `for line in (file.readlines() [-linecount:])` might work. (can confirm)
+    * Turns out I forgot error handling through usage()
 
 
 ### cut tool
+
 *   having `column_to_cut` as an integer didnt account for multiple columns
-  * Might be able to fix it by using `column_to_count` an array of ints
+    * Might be able to fix it by using `column_to_count` an array of ints
+    * Turns out I forgot error handling through usage()
+    * 
 ### paste tool
 
 *   I kinda had to go relearn how to open and read files. I found that doing file.readlines() helped read the file in the way I wanted
 *   Not going to lie, I forgot while loops existed. Might have been useful if i remembered that earlier.
+    * Turns out I forgot error handling through usage()
 * 
 ### tt.py
 
@@ -466,6 +509,166 @@ Deliver:
     *   Include a description of what happened for each test case.
     *   For any bugs discovered, describe their cause and remedy.
     *   Write your test cases in plain language such that a non-coder could run them and replicate your experience.
+
+**Most of my testing was done through the files in the provided testing folder.**
+
+### cat
+$ python src/tt.py cat data/ages8 data/dup5
+Age
+22
+36
+24
+39
+26
+23
+29
+17
+1
+1
+2
+2
+3
+4
+4
+5
+
+### tac
+$ python src/tt.py tac data/ages8 data/dup5
+17
+29
+23
+26
+39
+24
+36
+22
+Age
+5
+4
+4
+3
+2
+2
+1
+1
+
+
+### head
+$ python src/tt.py head data/ages8 data/dup5
+
+==> data/ages8 <==
+Age
+22
+36
+24
+39
+26
+23
+29
+17
+
+==> data/dup5 <==
+1
+1
+2
+2
+3
+4
+4
+5
+
+### tail
+$ python src/tt.py tail data/ages8 data/dup5
+
+==> data/ages8 <==
+Age
+22
+36
+24
+39
+26
+23
+29
+17
+
+==> data/dup5 <==
+1
+1
+2
+2
+3
+4
+4
+5
+
+### grep
+$ python src/tt.py grep 3 data/ages8 data/dup5
+data/ages8:36
+data/ages8:39
+data/ages8:23
+data/dup5:3
+
+### wc
+$ python src/tt.py wc data/ages8 data/dup5
+9       9       28      data/ages8
+8       8       16      data/dup5
+17      17      44      total
+
+### sort
+$ python src/tt.py sort data/ages8 data/dup5
+1
+1
+17
+2
+2
+22
+23
+24
+26
+29
+3
+36
+39
+4
+4
+5
+Age
+
+### cut
+$ python src/tt.py cut data/ages8 data/dup5
+Age
+22
+36
+24
+39
+26
+23
+29
+17
+1
+1
+2
+2
+3
+4
+4
+5
+
+### paste
+$ python src/tt.py paste data/ages8 data/dup5
+Age,1
+22,1
+36,2
+24,2
+39,3
+26,4
+23,4
+29,5
+17,
+
+### tt.py
+
+**This worked for all the other testing**
 
 
 ## Phase 4: Deployment
@@ -505,3 +708,13 @@ Deliver:
         *   ...to the next version of Python?
 *   [ ] Make one final commit and push your **completed** Software Development Plan to GitLab.
 *   [ ] Respond to the **Assignment Reflection Survey** on Canvas.
+
+-   I needed to spend more time on cut and paste. I rushed those because I was running out of time, and that caused me to not quite understand all of it.
+    - I was very much an "itchy reader" from the reading. I got the code I needed and left.
+    - Because of this my documentation for these 2 programs are lacking and hard to understand.
+    - However, because of how error handling was designed, bugs should still be easy to find the cause in a few months.
+    - 
+-   I feel like *most* of my documentation should make sense to others, but I understand even my rough english.
+-   Unless anything drastic happens to python, this should stay viable code after upgrades.
+    - I didnt import any extra libriaries other than what was needed. So as long as python stays reletivly similar, it should be fine.
+    - 
