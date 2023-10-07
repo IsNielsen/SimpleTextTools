@@ -17,13 +17,17 @@
 #                                  this software without specific prior written
 #                                  permission.
 
-
+import sys
+from Usage import usage
 def sort(args):
     """
     Take a list of filenames
     open all files, and sort each line by lexical order
     print all lines (from every file) in sorted order
     """
+    if len(args) == 0:
+        usage("Too few arguments", tool="sort")
+        sys.exit(1)
     all_files = []
     for filename in args:
         file = open(filename)

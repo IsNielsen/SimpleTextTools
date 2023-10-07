@@ -29,19 +29,22 @@ def cut(args):
     column_to_cut = []  # default
 
     if len(args) == 0:
-        usage()
+        usage("Too few arguments", tool="cut")
         sys.exit(1)
     # if there is a modifier and there is at least 3 args
     if args[0] == "-f":
         if len(args) >= 3: # and args[1].isdigit():
             temp = args[1].split(",")
             for i in range(len(temp)):
+                if int(temp[i]) <= 0:
+                    usage("A comma-separated field specification is required", tool="cut")
+                    sys.exit()
                 column_to_cut.append(int(temp[i]))
             #print(column_to_cut)
             args.pop(0)
             args.pop(0)
         else:
-            print("Not enough arguments given")
+            usage("At least one filename is required", tool="cut")
             sys.exit(1)
     else:
         column_to_cut.append(1)
@@ -58,6 +61,9 @@ def cut(args):
 
 
 def paste(args):
+    if len(args) == 0:
+        usage("Too few arguments", tool="paste")
+        sys.exit(1)
     array_of_lines = []
     max_lines = 0
     for filename in args:

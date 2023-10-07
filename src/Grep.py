@@ -16,6 +16,8 @@
 #                                  endorse or promote products derived from
 #                                  this software without specific prior written
 #                                  permission.
+import sys
+from Usage import usage
 
 
 def grep(args):
@@ -26,23 +28,33 @@ def grep(args):
     for each file in filenames
     open, search for pattern, print words with(-v: without) pattern.
     """
+    if len(args) == 0:
+        usage("Please provide a pattern and at least one filename", tool="grep")
+        sys.exit()
     # preg = true implies that -v has been called
     preg = False
     if args[0] == "-v":
         preg = True
+        if len(args) < 2 or type(args[1]) != str:
+            usage("Please provide a pattern and at least one filename", tool="grep")
+            sys.exit()
         args.pop(0)
+    if len(args) <= 1:
+        usage("Please provide a pattern and at least one filename", tool="grep")
+        sys.exit()
     pattern = args[0]
     args.pop(0)
+
 
     multfile = "" # empty string if there's only one file
 
     for filename in args:
         file = open(filename)
         if len(args) > 1:
-            multfile = "{filename}:"
+            multfile = f"{filename}:"
         for word in file:
             if not preg and pattern in word:
-                print(multfile + word)
+                print(multfile + word, end="")
             elif preg and pattern not in word:
-                print(multfile + word)
+                print(multfile + word, end="")
         file.close()

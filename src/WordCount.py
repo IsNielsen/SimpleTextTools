@@ -16,7 +16,8 @@
 #                                  endorse or promote products derived from
 #                                  this software without specific prior written
 #                                  permission.
-
+import sys
+from Usage import usage
 
 def wc(files):
     """print newline, word, and byte counts for each file"""
@@ -26,6 +27,9 @@ def wc(files):
         open the file, count lines, words, and characters
         print lines, words, characters, and filename
     """
+    if len(files) == 0:
+        usage("Too few arguments", tool="wc")
+        sys.exit(1)
     multFile = len(files) > 1  # true if more than 1 file
     total_line, total_word, total_char = 0, 0, 0
     for filename in files:

@@ -16,6 +16,8 @@
 #                                  endorse or promote products derived from
 #                                  this software without specific prior written
 #                                  permission.
+import sys
+from Usage import usage
 
 
 def head(args):
@@ -26,14 +28,21 @@ def head(args):
     open the file,
     print the first n lines to the screen with print()
     """
-
+    if len(args) == 0:
+        usage("Too few arguments", tool="head")
+        sys.exit()
     lines = 10
 
     if args[0] == '-n':
+        if len(args) < 2 or not args[1].isdigit():
+            usage("Number of lines is required", tool="head")
+            sys.exit()
         lines = int(args[1])
         args.pop(0)
         args.pop(0)     # left with only file names
-
+    if len(args) == 0:
+        usage("Too few arguments", tool="head")
+        sys.exit()
     for filename in args:
         file = open(filename)  # Just let open() crash if filename is invalid
         if len(args) > 1:
@@ -58,12 +67,21 @@ def tail(args):
     """
     multFile = ""  # empty string if only one file
     lines = 10
-
+    if len(args) == 0:
+        usage("Too few arguments", tool="tail")
+        sys.exit()
     if args[0] == '-n':
+        if len(args) < 2 or not args[1].isdigit():
+
+            usage("Number of lines is required", tool="tail")
+            sys.exit()
         lines = int(args[1])
         args.pop(0)
         args.pop(0)  # left with only file names
 
+    if len(args) == 0:
+        usage("Too few arguments", tool="tail")
+        sys.exit()
     for filename in args:
         file = open(filename)  # Just let open() crash if filename is invalid
         if len(args) > 1:
